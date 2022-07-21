@@ -1,0 +1,11 @@
+version: '3.7'
+services:
+  apache:
+    ports:
+      - "80:80"
+    volumes:
+      - "./apache-config/app_httpd.conf:/usr/local/apache2/conf/httpd.conf"
+      - "./apache-config/app_vhost.conf:/usr/local/apache2/conf/extra/httpd-vhosts.conf"
+      - "./apache-config/hosts:/etc/hosts"
+      - "./dist/test-project:/app"
+    image: "httpd:alpine"
